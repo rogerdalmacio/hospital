@@ -5,6 +5,7 @@
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,7 +79,6 @@
         transform: translate(-50%, -50%);
         display: none;
       }
-      
         
         </style>
       
@@ -260,8 +260,10 @@
     <br><br><br>
   <hr>
 
-    <h1>PATIENT DASHBOARD</h1>
-
+    <div class="module02" style="background-image: url('img/patientdash.png')">
+    <h1><br>&nbsp;&nbsp;&nbsp;<b>PATIENT DASHBOARD</b></h1>
+	<br><br><br>
+    </div>
 
 
     <br>
@@ -300,3 +302,5 @@
     <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+
