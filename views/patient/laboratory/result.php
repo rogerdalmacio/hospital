@@ -124,7 +124,7 @@ body {
     <th>Examined By</th>
     <th>Processed By</th>
     <th>Laboratory Result Date</th>
-	<th>Amount</th>
+    <th>Amount</th>
   </tr>
   <tr>
     <td><?php echo $data['id'];?></td>
@@ -135,7 +135,7 @@ body {
     <td><?php echo $data['examined_by'];?></td>
     <td><?php echo $data['processed_by'];?></td>
     <td><?php echo $data['laboratory_result_date'];?></td>
-	<td><?php echo $data['amount'];?></td>
+    <td><?php echo $data['amount'];?></td>
   </tr>
 
 <br>
@@ -144,12 +144,12 @@ body {
     <tr>
       <th>Test Name</th>
       <th>Test Result</th>
-	  <th>Comments</th>
+      <th>Comments</th>
     </tr>
     <tr>
      <td><?php echo $data['test_name'];?></td>
      <td><?php echo $data['test_result'];?></td>
-	 <td><?php echo $data['comments'];?></td>
+     <td><?php echo $data['comments'];?></td>
     </tr>
 
 </table>
@@ -171,23 +171,28 @@ document.addEventListener("DOMContentLoaded", function() {
    
    <script>
 			// Function for Screenshot 
-			const screenshotBtn = document.getElementById("screenshot-btn");
-
-screenshotBtn.addEventListener("click", () => {
-  html2canvas(document.body).then(canvas => {
-    const image = canvas.toDataURL("image/png");
-    download(image, "screenshot.png");
-  });
+// Capture the screenshot on button click
+document.getElementById("screenshot-btn").addEventListener("click", function() {
+    // Capture the screenshot of the document body
+    html2canvas(document.body).then(function(canvas) {
+        // Convert the canvas to base64 encoded image and save it to local storage
+        localStorage.setItem("screenshot", canvas.toDataURL());
+        // Display the captured image in the image element
+        document.getElementById("screenshot-img").src = localStorage.getItem("screenshot");
+    });
 });
 
-function download(data, filename) {
-  const a = document.createElement("a");
-  a.href = data;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-}
+// Save the captured screenshot before leaving the page
+window.onbeforeunload = function() {
+    localStorage.setItem("screenshot", document.getElementById("screenshot-img").src);
+};
+
+// Load the saved screenshot when the page loads
+window.onload = function() {
+    if (localStorage.getItem("screenshot")) {
+        document.getElementById("screenshot-img").src = localStorage.getItem("screenshot");
+    }
+};
 
    </script>
    
@@ -200,6 +205,7 @@ function download(data, filename) {
 </body>
 
   <button id="screenshot-btn">Take Screenshot</button>
+  <img id="screenshot-img" src="">
 	  <br><br><br>
 
 
