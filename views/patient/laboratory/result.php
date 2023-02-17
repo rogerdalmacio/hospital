@@ -15,28 +15,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RESULT</title>
+    <!-- Favicons -->
+ <link rel="icon" type="image/x-icon" href="img/logoo1.ico">
+</head>
+
+<style>
+  /* Add CSS styles here */
+  /* Define the table layout */
+  table {
+    width: 75%;
+    margin: auto;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  /* Define the table headers */
+  th {
+    background-color: #f2f2f2;
+    padding: 12px;
+    border: 1px solid #ddd;
+  }
+  /* Define the table data */
+  td {
+    padding: 12px;
+    border: 1px solid #ddd;
+  }
+
+
+  .module {
+    background-color: white;
+    border: 2px solid white;  /* Add a border to the module */
+    border-radius: 22px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /* Add a shadow */
+    padding: 50px;  /* Add padding to the module */
+    width: 720px;  /* Set the width of the module */
+    height: 580px;  /* Set the height of the module */
+    margin-left: auto;
+    margin-right: auto; 
+    
+  }
+
+
+
+  
+body {
+  background-image: url('img/pexels-tima-miroshnichenko-5355865.jpg');  /* Add the background image */
+  background-repeat: no-repeat;  /* Do not repeat the image */
+  background-size: cover;  /* Resize the image to cover the entire background */
+}
+
+
+
+ /* Add styles to the pop-up message */
+#alert {
+  background-color: lightblue;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+
+
+#screenshot-btn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+</style>
+
+
+
 </head>
 <body>
-    <h1>Laboratory result</h1>
-    <div>
-        <?php while($data = mysqli_fetch_assoc($execute)) {?>
-        <p>result id : <?php echo $data['id'];?></p>
-        <p>patient id : <?php echo $data['patient_id'];?></p>
-        <p>name : <?php echo $_SESSION['user_info']['first_name'] . " " . $_SESSION['user_info']['last_name'];?></p>
-        <p>gender : <?php echo $_SESSION['user_info']['gender'];?></p>
-        <p>contact number : <?php echo $_SESSION['user_info']['contact_number'];?></p>
-        <p>test name : <?php echo $data['test_name'];?></p>
-        <p>test result : <?php echo $data['test_result'];?></p>
-        <p>comments : <?php echo $data['comments'];?></p>
-        <p>amount : <?php echo $data['amount'];?></p>
-        <p>examined by : <?php echo $data['examined_by'];?></p>
-        <p>processed by : <?php echo $data['processed_by'];?></p>
-        <p>laboratory result date : <?php echo $data['laboratory_result_date'];?></p>
-        <?php }?>
-    </div>
+  <br>
+  <br><br>
+  <div class="module" style="background-image: url('img/photography-paper-17-640x360.jpg')">
+    <img src="img/logoo-removebg.png">
+    <link rel="shortcut icon" type="image/x-icon" href="img/logoo-removebg.png"/>
+    
+	
+    <?php while($data = mysqli_fetch_assoc($execute)) {?>
+<h1>&nbsp; Patient Laboratory Results</h1>
+<table>
+  <tr>
+    <th>Result ID</th>
+    <th>Patient ID</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Contact Number</th>
+    <th>Examined By</th>
+    <th>Processed By</th>
+    <th>Laboratory Result Date</th>
+	<th>Amount</th>
+  </tr>
+  <tr>
+    <td><?php echo $data['id'];?></td>
+    <td><?php echo $data['patient_id'];?></td>
+    <td><?php echo $_SESSION['user_info']['first_name'] . " " . $_SESSION['user_info']['last_name'];?></td>
+    <td><?php echo $_SESSION['user_info']['gender'];?></td>
+    <td><?php echo $_SESSION['user_info']['contact_number'];?></td>
+    <td><?php echo $data['examined_by'];?></td>
+    <td><?php echo $data['processed_by'];?></td>
+    <td><?php echo $data['laboratory_result_date'];?></td>
+	<td><?php echo $data['amount'];?></td>
+  </tr>
+
+<br>
+
+  <table><br><br>
+    <tr>
+      <th>Test Name</th>
+      <th>Test Result</th>
+	  <th>Comments</th>
+    </tr>
+    <tr>
+     <td><?php echo $data['test_name'];?></td>
+     <td><?php echo $data['test_result'];?></td>
+	 <td><?php echo $data['comments'];?></td>
+    </tr>
+
+</table>
+<?php }?>  
+
+
+
+   <script>
+  
+	 // Show the pop-up message
+document.addEventListener("DOMContentLoaded", function() {
+  alert("Here is the result of your laboratory test.");
+});
+   </script>
+   
+   
+   
+   
+   
+   <script>
+			// Function for Screenshot 
+			const screenshotBtn = document.getElementById("screenshot-btn");
+
+screenshotBtn.addEventListener("click", () => {
+  html2canvas(document.body).then(canvas => {
+    const image = canvas.toDataURL("image/png");
+    download(image, "screenshot.png");
+  });
+});
+
+function download(data, filename) {
+  const a = document.createElement("a");
+  a.href = data;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+   </script>
+   
+
+<br><br><br>
+<p>"This form is intended for patient results based on a test form filled out by the patient. Any results submitted on this form that do not correspond to a test form completed by the patient will not be accepted."</p>
+<br><center><p>©2023 AlegarioCure Hospital | All Rights Reserved</p></center>
+</div>
+<br><br><br>
 </body>
+
+  <button id="screenshot-btn">Take Screenshot</button>
+	  <br><br><br>
+
+
 </html>
