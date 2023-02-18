@@ -1,12 +1,13 @@
 <?php 
 
-    include '../../../environment/database.php';
+    include '../../../environment/Database.php';
     include '../../../environment/session/patient.php';
+    include '../../../controllers/QueryController.php';
 
-    $userid = $_SESSION['user_info']['id'];
+    $query = new Query;
 
-    $sql = "SELECT * FROM `patient_diets` WHERE `patient_id` = $userid";
-    $sqlexecute = mysqli_query($connection, $sql);
+    $meals = $query->diet($_SESSION['user_info']['id']);
+    
 
 ?>
 
@@ -19,7 +20,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php while($data = mysqli_fetch_assoc($sqlexecute)) {?>
+    <?php while($data = mysqli_fetch_assoc($meals)) {?>
     <div>
         <p>prepared by : <?php echo $data['nutritionists'];?></p>
         <p>classification : <?php echo $data['classification'];?></p>

@@ -1,13 +1,12 @@
 <?php
 
-    include '../../../environment/database.php';
     include '../../../environment/session/patient.php';
+    include '../../../controllers/QueryController.php';
+    include '../../../environment/Database.php';
 
-    $userid = $_SESSION['user_info']['id'];
-
-    $sql = " SELECT * FROM `laboratory_results` WHERE `patient_id` = $userid";
-    $execute = mysqli_query($connection, $sql);
-
+    $query = new Query;
+    
+    $labresult = $query->laboratory_results($_SESSION['user_info']['id']);
 
 ?>
 
@@ -107,12 +106,12 @@ body {
 <body>
   <br>
   <br><br>
-  <div class="module" style="background-image: url('img/photography-paper-17-640x360.jpg')">
-    <img src="img/logoo-removebg.png">
-    <link rel="shortcut icon" type="image/x-icon" href="img/logoo-removebg.png"/>
+  <div class="module" style="background-image: url('../img/photography-paper-17-640x360.jpg')">
+    <img src="../img/logoo-removebg.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../img/logoo-removebg.png"/>
     
 	
-    <?php while($data = mysqli_fetch_assoc($execute)) {?>
+    <?php while($data = mysqli_fetch_assoc($labresult)) {?>
 <h1>&nbsp; Patient Laboratory Results</h1>
 <table>
   <tr>

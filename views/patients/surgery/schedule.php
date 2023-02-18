@@ -1,12 +1,12 @@
 <?php 
 
-    include '../../../environment/database.php';
+    include '../../../environment/Database.php';
     include '../../../environment/session/patient.php';
+    include '../../../controllers/QueryController.php';
 
-    $userid = $_SESSION['user_info']['id'];
+    $query = new Query;
 
-    $sql = "SELECT * FROM `surgery_schedules` WHERE `patient_id` = $userid";
-    $sqlexecute = mysqli_query($connection, $sql);
+    $surgery_schedules = $query->surgery_schedule($_SESSION['user_info']['id']);
 
 ?>
 
@@ -19,7 +19,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php while($data = mysqli_fetch_assoc($sqlexecute)) {?>
+    <?php while($data = mysqli_fetch_assoc($surgery_schedules)) {?>
     <div>
         <p>doctor_id : <?php echo $data['doctor_id'];?></p>
         <p>surgery type : <?php echo $data['surgery_type'];?></p>

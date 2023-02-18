@@ -3,6 +3,7 @@
     include '../../../environment/database.php';
     include '../../../environment/session/patient.php';
 
+    
 ?>
 
 <!DOCTYPE html>

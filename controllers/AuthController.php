@@ -1,17 +1,15 @@
 <?php 
 
     include '../environment/Database.php';
-    // include '../environment/FileRestriction.php';
+    include '../environment/FileRestriction.php';
     session_start();
 
     class AuthController extends Database{
 
         public function authenticate(string $email, string $password) {
 
-            $connect = Database::connect();
-
             $query = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-            $execute = mysqli_query($connect, $query);
+            $execute = mysqli_query(Database::connect(), $query);
             $data = mysqli_fetch_array($execute);
             
             if(!$data) {
