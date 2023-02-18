@@ -22,16 +22,17 @@
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     
       <!-- Vendor CSS Files -->
-      <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-      <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-      <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-      <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet">
-      <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
-      <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-      <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+      <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+      <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+      <link href="../../assets/vendor/quill/quill.snow.css" rel="stylesheet">
+      <link href="../../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+      <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+      <link href="../../assets/vendor/simple-datatables/style.css" rel="stylesheet">
+      
     
       <!-- Template Main CSS File -->
-      <link href="assets/css/style.css" rel="stylesheet">
+      <link href="../../assets/css/style.css" rel="stylesheet">
     
 
 
@@ -161,12 +162,10 @@
               </li>
   
               <li>
-                <form action="../function/session/logout.php" method="post">
-                  <button class="dropdown-item d-flex align-items-center">
+                  <a href="../../environment/session/logout.php" class="dropdown-item d-flex align-items-cente">
                     <i class="bi bi-box-arrow-right"></i>
                     <span>Log Out</span>
-                  </button>
-                </form>
+                  </a>
               </li>
               
             </ul><!-- End Profile Dropdown Items -->
@@ -220,14 +219,6 @@
             <span>Laboratory Result</span>
           </a>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="../../environment/session/logout.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>logout</span>
-          </a>
-        </li>
-  
   
       </ul>
   
@@ -277,29 +268,29 @@
       </div>
     </footer>
     
-     <script>
+     <!-- <script>
     
      // Show the pop-up message
   document.addEventListener("DOMContentLoaded", function() {
     alert("Welcome to Patient Dashboard😉✔");
   });
-     </script>
+     </script> -->
     
   
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   
     <!-- Vendor JS Files -->
-    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/chart.js/chart.min.js"></script>
-    <script src="assets/vendor/echarts/echarts.min.js"></script>
-    <script src="assets/vendor/quill/quill.min.js"></script>
-    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
-    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/vendor/chart.js/chart.min.js"></script>
+    <script src="../../assets/vendor/echarts/echarts.min.js"></script>
+    <script src="../../assets/vendor/quill/quill.min.js"></script>
+    <script src="../../assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="../../assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="../../assets/vendor/php-email-form/validate.js"></script>
   
     <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script src="../../assets/js/main.js"></script>
 </body>
 </html>
 

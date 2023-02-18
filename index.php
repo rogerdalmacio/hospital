@@ -19,7 +19,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="controllers/login.php" method="post">
+    <form action="controllers/LoginController.php" method="post">
         <input type="text" name="email" placeholder="email">
         <input type="text" name="password" placeholder="password">
         <button type="submit" name="submit">login</button>

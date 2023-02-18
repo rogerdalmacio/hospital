@@ -2,7 +2,7 @@
 
     session_start();
     
-    if($_SESSION['status'] != 'patient') {
+    if($_SESSION['status'] != 'patients') {
         echo "<script>
         alert('You are not allowed to view this page'); 
         window.history.back();
