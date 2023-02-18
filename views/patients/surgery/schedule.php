@@ -301,7 +301,7 @@
         <p>Surgery type : <?php echo $data['surgery_type'];?></p>
         <p>Appoitment date : <?php echo $data['appointment_date'];?></p>
 		   <hr>
-		<p>This result would be a clear and concise update to the recipient about the surgery schedule, including the date and time of the surgery as well as any necessary instructions.</p>
+		<p style="color: grey;">This result would be a clear and concise update to the recipient about the surgery schedule, including the date and time of the surgery as well as any necessary instructions.</p>
 		
     </div>
     <?php }?>
