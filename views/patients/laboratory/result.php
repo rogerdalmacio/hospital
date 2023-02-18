@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RESULT</title>
     <!-- Favicons -->
- <link rel="icon" type="image/x-icon" href="img/logoo1.ico">
+ <link rel="icon" type="image/x-icon" href="../assets/img/logoo1.ico">
 </head>
 
 <style>
@@ -61,7 +61,7 @@
 
   
 body {
-  background-image: url('img/pexels-tima-miroshnichenko-5355865.jpg');  /* Add the background image */
+  background-image: url('../assets/img/pexels-tima-miroshnichenko-5355865.jpg');  /* Add the background image */
   background-repeat: no-repeat;  /* Do not repeat the image */
   background-size: cover;  /* Resize the image to cover the entire background */
 }
@@ -106,9 +106,9 @@ body {
 <body>
   <br>
   <br><br>
-  <div class="module" style="background-image: url('../img/photography-paper-17-640x360.jpg')">
-    <img src="../img/logoo-removebg.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../img/logoo-removebg.png"/>
+  <div class="module" style="background-image: url('../assets/img/photography-paper-17-640x360.jpg')">
+    <img src="../assets/img/logoo-removebg.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/img/logoo-removebg.png"/>
     
 	
     <?php while($data = mysqli_fetch_assoc($labresult)) {?>
