@@ -1,11 +1,10 @@
-
 <?php 
 
-    include '../../../environment/Database.php';
-    include '../../../environment/session/patient.php';
-    include '../../../controllers/QueryController.php';
+    include_once  $_SERVER['DOCUMENT_ROOT'] . '/Hospital/environment/Database.php';
+    include_once  $_SERVER['DOCUMENT_ROOT'] . '/Hospital/environment/session/patient.php';
+    include_once  $_SERVER['DOCUMENT_ROOT'] . '/Hospital/controllers/Users/PatientController.php';
 
-    $query = new Query;
+    $query = new PatientQuery;
 
     $surgery_schedules = $query->surgery_schedule($_SESSION['user_info']['id']);
 

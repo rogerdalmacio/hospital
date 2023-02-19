@@ -1,6 +1,6 @@
 <?php
 
-    include 'AuthController.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Hospital/controllers/AuthController.php';
 
     // $_POST['submit'] came from form input type submit, name = submit
     if(isset($_POST['submit'])){

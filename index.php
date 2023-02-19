@@ -2,7 +2,7 @@
 
     session_start();
 
-    if($_SESSION['status']) {
+    if(isset($_SESSION['status'])) {
         echo "<script>
         window.history.back();
         </script>";

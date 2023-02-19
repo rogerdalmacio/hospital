@@ -1,7 +1,6 @@
 <?php 
 
-    include '../../../environment/database.php';
-    include '../../../environment/session/patient.php';
+    include_once  $_SERVER['DOCUMENT_ROOT'] . '/Hospital/environment/session/patient.php';
 
     
 ?>
@@ -107,194 +106,7 @@
 </head>
 
 <body>
-
-    <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-flex align-items-center">
-
-      <div class="d-flex align-items-center justify-content-between">
-        <a href="index.php" class="logoo d-flex align-items-center">
-          <img src="assets/img/logoo.png" alt="">
-          <span class="d-none d-lg-block" style="color:#2098d1";><b>&nbsp;Alegario Cure</b><br><b style="color:#66cc33";>&nbsp;Hospital</b></span>
-        </a>
-        <i class="bi bi-list toggle-sidebar-btn"></i>
-      </div><!-- End Logo -->
-  
-      <div class="search-bar">
-        <form class="search-form d-flex align-items-center" method="POST" action="#">
-          <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-          <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-        </form>
-      </div><!-- End Search Bar -->
-  
-      <nav class="header-nav ms-auto">
-        <ul class="d-flex align-items-center">
-  
-          <li class="nav-item d-block d-lg-none">
-            <a class="nav-link nav-icon search-bar-toggle " href="#">
-              <i class="bi bi-search"></i>
-            </a>
-          </li><!-- End Search Icon-->
-  
-  
-          <li class="nav-item dropdown pe-3">
-      
-            <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-              <span class="d-none d-md-block dropdown-toggle ps-2">Patient</span>
-            </a><!-- End Profile Iamge Icon -->
-  
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-              <li class="dropdown-header">
-                <h6>AlegarioCure Hospital</h6>
-                <span>We Commit to Care</span>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-  
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                  <i class="bi bi-person"></i>
-                  <span>My Profile</span>
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-  
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                  <i class="bi bi-gear"></i>
-                  <span>Account Settings</span>
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-  
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                  <i class="bi bi-question-circle"></i>
-                  <span>Need Help?</span>
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-  
-              <li>
-                <form action="../function/session/logout.php" method="post">
-                  <button class="dropdown-item d-flex align-items-center">
-                    <i class="bi bi-box-arrow-right"></i>
-                    <span>Log Out</span>
-                  </button>
-                </form>
-              </li>
-              
-            </ul><!-- End Profile Dropdown Items -->
-          </li><!-- End Profile Nav -->
-  
-        </ul>
-      </nav><!-- End Icons Navigation -->
-  
-    </header><!-- End Header -->
-  
-    <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
-  
-      <ul class="sidebar-nav" id="sidebar-nav">
-  
-  
-          <li class="nav-heading">Dashboard Patient</li>
-  
-        
-        <li class="nav-item">
-          <a class="nav-link " href="outpatient/treatment.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Outpatient Treatment</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="insurance/application.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span style="color: #2098d1;">HMO & Insurance</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="diet/meals.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Diet</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="surgery/schedule.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Surgery Schedule</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="laboratory/result.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Laboratory Result</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="../../environment/session/logout.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>logout</span>
-          </a>
-        </li>
-  
-  
-      </ul>
-  
-    </aside><!-- End Sidebar-->
-  
-    <main id="main" class="main">
-  
-      <div class="pagetitle">
-        <h1>Dashboard Patient</h1>
-        <nav>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard Patient</li>
-          </ol>
-        </nav>
-      </div><!-- End Page Title -->
-  
-  
-  <body>
-  
-    <br>
-    <div class="title">
-    <h1 class="title2">AlegarioCure Services</h1>
-    <br><br>
-    
-    <h4>From AlegarioCure Hopital Greetings <br> Magandang buhay para sa lahat ng<br> 
-      aming pasyente. serbisyong maasahan<br>
-      para sa lahat serbisyong nag bibigay<br> 
-      alaga upang mapabilis ang paggaling.</h4>
-    <br><br><br>
-  <hr>
-  
-	<div class="module02" style="background-image: url('img/patientdash - Copy.png'); border-radius: 22px;">
-    <h1><br>&nbsp;&nbsp;&nbsp;<b>PATIENT INSURANCE APPLICATION</b></h1>
-	<br><br><br>
-    </div>
-	   <hr>
-    <br>
-	
-	<div class="module">
-
-    <div>
-	    <h3>Hmo and Insurance Application</h3><br>
- 
- 
-     <form action="../controllers/submit_insurance_application.php" method="post">
+    <form action="../controllers/submit_insurance_application.php" method="post">
         <select name="provider">
         <option default value="AIA Philippines American Life and General Ins">AIA Philippines American Life and General Ins</option>
         <option value="Insular Life Assurance Company Limited">Insular Life Assurance Company Limited</option>
@@ -313,7 +125,7 @@
         <option value="Insularcare">Insularcare</option>
         <option value="Valucare">Valucare</option>
         <option value="Fortunecare">Fortunecare</option>
-        </select><br><br>
+        </select>
         <input type="text" name="membership_id" placeholder="membership id">
         <select name="tier">
             <option value="bronze">Bronze</option>
@@ -329,7 +141,6 @@
 		<p style="color: grey;">Insurance application is a form filled out by an individual or business seeking to obtain insurance coverage, providing information about themselves and the assets or risks they wish to insure.</p>
 		
     </div>
-    <?php }?>
 	</div>
 	
 

@@ -1,11 +1,10 @@
-
 <?php 
 
-    include '../../../environment/Database.php';
-    include '../../../environment/session/patient.php';
-    include '../../../controllers/QueryController.php';
+    include_once  $_SERVER['DOCUMENT_ROOT'] . '/Hospital/environment/Database.php';
+    include_once  $_SERVER['DOCUMENT_ROOT'] . '/Hospital/environment/session/patient.php';
+    include_once  $_SERVER['DOCUMENT_ROOT'] . '/Hospital/controllers/Users/PatientController.php';
 
-    $query = new Query;
+    $query = new PatientQuery;
 
     $outpatient_treatment = $query->outpatient_treatment($_SESSION['user_info']['id']);
 
@@ -293,9 +292,8 @@
     </div>
 	   <hr>
     <br>
-	
+	<?php while($data = mysqli_fetch_assoc($outpatient_treatment)) {?>
 	<div class="module">
-    <?php while($data = mysqli_fetch_assoc($surgery_schedules)) {?>
     <div>
 	    <h3>Outpatient Treatment</h3><br>
         <p>Patient id : <?php echo $data['patient_id'];?></p>
@@ -305,8 +303,8 @@
 		<p style="color: grey;">This form is a medical care where a patient receives treatment and care at a medical facility without being admitted as an inpatient.</p>
 		
     </div>
-    <?php }?>
 	</div>
+  <?php }?>
 	
 
 	<br>

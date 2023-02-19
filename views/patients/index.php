@@ -1,7 +1,6 @@
-
 <?php 
 
-    include '../../environment/session/patient.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Hospital/environment/session/patient.php';
 
 ?>
 

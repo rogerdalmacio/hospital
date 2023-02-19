@@ -1,10 +1,9 @@
 <?php 
 
-    include '../environment/Database.php';
-    include '../environment/FileRestriction.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Hospital/environment/Database.php';
     session_start();
 
-    class AuthController extends Database{
+    class AuthController{
 
         public function authenticate(string $email, string $password) {
 
@@ -33,8 +32,10 @@
             $_SESSION['user_info'] = $data;
             $_SESSION['status'] = $roles;
 
-            echo "<script> alert('success') </script>";
-            header("location: ../views/$roles");
+            echo "<script> 
+                alert('success') 
+                window.location.href = '../views/$roles'
+            </script>";
 
         }
 
