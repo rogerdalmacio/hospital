@@ -1,6 +1,6 @@
 <?php 
 
-    include '../../environment/session/doctor.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Hospital/environment/session/doctor.php';
 
 ?>
 
@@ -14,6 +14,8 @@
 </head>
 <body>
     <h1>DOCTOR DASHBOARD</h1>
+    <a href="appointment/list.php">Appointments</a>
     <a href="../../environment/session/logout.php">logout</a>
+
 </body>
 </html>

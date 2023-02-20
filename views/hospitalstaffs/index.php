@@ -14,7 +14,7 @@
 </head>
 <body>
     <h1>HOSPITAL STAFF DASHBOARD</h1>
-    <a href="insurance/list.php">Hmo and Insurance</a>
+    <a href="insurance/list.php">Patients Hmo and Insurance</a>
     <a href="../../environment/session/logout.php">logout</a>
 </body>
 </html>

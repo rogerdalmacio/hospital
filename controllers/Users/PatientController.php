@@ -2,8 +2,9 @@
 
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Hospital/environment/Database.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Hospital/controllers/DataExists.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Hospital/controllers/QueryController.php';
     
-    class PatientQuery {
+    class PatientQuery extends Query{
 
         public function laboratory_results(int $patient_id) {
 

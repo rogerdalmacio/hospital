@@ -1,7 +1,6 @@
 <?php 
 
-    include '../../environment/session/patient.php';
-
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Hospital/environment/session/surgery_scheduler.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +13,7 @@
 </head>
 <body>
     <h1>SURGERY SCHEDULER DASHBOARD</h1>
+    <a href="surgery/scheduler.php">Surgery Scheduler</a>
     <a href="../../environment/session/logout.php">logout</a>
 </body>
 </html>
