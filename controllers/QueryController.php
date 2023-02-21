@@ -13,4 +13,10 @@
 
         }
 
+        public function date() {
+
+            return date("Y-m-d h:i:s");
+
+        }
+
     }

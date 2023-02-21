@@ -8,10 +8,11 @@
         public function submitSurgerySchedule(int $patient_id, int $doctor_id, string $surgery, string $appointmentDate, string $appointmentTime) {
 
             try {
-            $date = date("Y-m-d h:i:s");
 
-            $query = "INSERT INTO `surgery_schedules`(`id`, `patient_id`, `doctor_id`, `surgery_type`, `appointment_date`, `appointment_time`, `created_at`, `updated_at`) 
-            VALUES (null,'$patient_id','$doctor_id','$surgery','$appointmentDate','$appointmentTime','$date','$date')";
+            $date = Query::date();
+
+            $query = "INSERT INTO `surgery_schedules`(`id`, `patient_id`, `doctor_id`, `surgery_type`, `appointment_date`, `appointment_time`,`status`, `created_at`, `updated_at`) 
+            VALUES (null,'$patient_id','$doctor_id','$surgery','$appointmentDate','$appointmentTime',false,'$date','$date')";
             $execute = mysqli_query(Database::connect(), $query);
 
             echo "<script>
@@ -21,22 +22,48 @@
 
             } catch (Exception $e) {
 
-                
-                if(mysqli_errno(Database::connect()) == 0) {
-                    
-                    echo "<script>
-                    alert('Schedule already taken'); 
-                    window.history.back();
-                    </script>";
+                echo "<script>
+                alert('Something went wrong'); 
+                window.history.back();
+                </script>";
 
-                } else {
+            }
 
-                    echo "<script>
-                    alert('Error'); 
-                    window.history.back();
-                    </script>";
+        }
 
-                }
+        public function editSchedule(int $id, string $surgeryType, string $appointmentDate, string $appointmentTime) {
+            
+            $date = Query::date();
+
+            $query = "UPDATE `surgery_schedules` SET `surgery_type`='$surgeryType',
+            `appointment_date`='$appointmentDate',`appointment_time`='$appointmentTime',`updated_at`='$date' WHERE id = $id";
+            $execute = mysqli_query(Database::connect(), $query);
+
+            if($execute) {
+
+                echo "Successfully updated";
+
+            } else {
+
+                echo "Something went wrong";
+
+            }
+
+        }
+
+        public function deleteSchedule(int $id) {
+
+            $query = "DELETE FROM `surgery_schedules` WHERE id = '$id'";
+            $execute = mysqli_query(Database::connect(), $query);
+
+
+            if($execute) {
+
+                echo "Successfully deleted";
+
+            } else {
+
+                echo "Something went wrong";
 
             }
 

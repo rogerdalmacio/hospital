@@ -1,6 +1,6 @@
 <?php 
 
-    include '../..environment/session/nutritionist.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/Hospital/environment/session/nutritionist.php';
 
 ?>
 
@@ -14,6 +14,7 @@
 </head>
 <body>
     <h1>NUTRITIONIST DASHBOARD</h1>
+    <a href="diet/management.php">Diet Management</a>
     <a href="../../environment/session/logout.php">logout</a>
 </body>
 </html>
