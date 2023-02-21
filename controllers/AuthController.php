@@ -11,22 +11,13 @@
             $execute = mysqli_query(Database::connect(), $query);
             $data = mysqli_fetch_array($execute);
             
-            if(!$data) {
-                echo "<script>
-                
-                alert('No user found') 
-                window.history.back()
-                
-                </script>";
-            }
-            
             return $data;
 
         }
 
         public static function user(int $id, string $roles) {
 
-            $query = "SELECT * FROM $roles WHERE id = '$id'";
+            $query = "SELECT * FROM $roles WHERE user_id = '$id'";
             $execute = mysqli_query(Database::connect(), $query);
             $data = mysqli_fetch_assoc($execute);
             $_SESSION['user_info'] = $data;

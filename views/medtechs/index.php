@@ -14,6 +14,7 @@
 </head>
 <body>
     <h1>MEDTECH DASHBOARD</h1>
+    <a href="laboratory/update.php">Update Laboratory</a>
     <a href="../../environment/session/logout.php">logout</a>
 </body>
 </html>

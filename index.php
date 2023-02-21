@@ -140,7 +140,7 @@ button:hover{
 				
     <form action="controllers/LoginController.php" method="post">
         <input type="text" name="email" placeholder="email"><br>
-        <input type="text" name="password" placeholder="password"><br><br>
+        <input type="password" name="password" placeholder="password"><br><br>
         <button type="submit" name="submit">login</button>
     </form><br>
                     <a href="#">forgot Password</a>

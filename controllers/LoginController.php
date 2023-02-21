@@ -10,8 +10,19 @@
 
         $credentials = $auth->authenticate($_POST['email'], $_POST['password']);
 
+        if(!$credentials) {
+            echo "<script>
+                
+            alert('No user found') 
+            window.history.back()
+            
+            </script>";
+        } else {
+
         // fetch user data and save to session
         $roles = $auth->user($credentials['id'], $credentials['roles']);
+
+        }
 
     }
 
