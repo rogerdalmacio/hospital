@@ -8,6 +8,8 @@
     
     $labresult = $query->laboratory_results($_SESSION['user_info']['id']);
 
+    $labresultdata = mysqli_fetch_assoc($labresult);
+
 ?>
 
 
@@ -111,7 +113,6 @@ body {
     <link rel="shortcut icon" type="image/x-icon" href="../../../assets/img/logoo-removebg.png"/>
     
 	
-    <?php while($data = mysqli_fetch_assoc($labresult)) {?>
 <h1>&nbsp; Patient Laboratory Results</h1>
 <table>
   <tr>
@@ -126,15 +127,15 @@ body {
     <th>Amount</th>
   </tr>
   <tr>
-    <td><?php echo $data['id'];?></td>
-    <td><?php echo $data['patient_id'];?></td>
+    <td><?php echo $labresultdata['id'];?></td>
+    <td><?php echo $labresultdata['patient_id'];?></td>
     <td><?php echo $_SESSION['user_info']['first_name'] . " " . $_SESSION['user_info']['last_name'];?></td>
     <td><?php echo $_SESSION['user_info']['gender'];?></td>
     <td><?php echo $_SESSION['user_info']['contact_number'];?></td>
-    <td><?php echo $data['examined_by'];?></td>
-    <td><?php echo $data['processed_by'];?></td>
-    <td><?php echo $data['laboratory_result_date'];?></td>
-    <td><?php echo $data['amount'];?></td>
+    <td><?php echo $labresultdata['examined_by'];?></td>
+    <td><?php echo $labresultdata['processed_by'];?></td>
+    <td><?php echo $labresultdata['laboratory_result_date'];?></td>
+    <td><?php echo $labresultdata['amount'];?></td>
   </tr>
 
 <br>
@@ -145,14 +146,16 @@ body {
       <th>Test Result</th>
       <th>Comments</th>
     </tr>
+    <?php while($data = mysqli_fetch_assoc($labresult)) {?>
     <tr>
      <td><?php echo $data['test_name'];?></td>
      <td><?php echo $data['test_result'];?></td>
      <td><?php echo $data['comments'];?></td>
     </tr>
+    <?php }?>  
 
 </table>
-<?php }?>  
+
 
 
 

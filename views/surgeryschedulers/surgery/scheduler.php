@@ -392,8 +392,8 @@ th {
 	  <td><?php echo $listOfSurgerySchedule['appointment_time'] ?></td>
 	  
 	 <td style="background-color: #d3d3d3">&nbsp;&nbsp;
-	  <button type="submit" name="edit" class="button button1" style="color:#FFFFFF">Open Modal</button>
-      <button type="button" class="delete button button3" style="color:#FFFFFF" value="<?php echo $listOfSurgerySchedule['id'] ?>">delete</button>
+	  <button type="submit" name="edit" class="button button1" style="color:#FFFFFF">Edit</button>
+    <button type="button" class="delete button button3" style="color:#FFFFFF" value="<?php echo $listOfSurgerySchedule['id'] ?>">delete</button>
 	 </td>
     </tr>
 	 </form>

@@ -287,12 +287,11 @@
     </div>
 	   <hr>
     <br>
-	<?php while($data = mysqli_fetch_assoc($outpatient_treatment)) {?>
 	<div class="module">
     <div>
 	    <h3>Insurance Application</h3><br>
  
-     <form action="../controllers/submit_insurance_application.php" method="post">
+     <form action="submit_insurance_application.php" method="post">
         <select name="provider">
         <option default value="AIA Philippines American Life and General Ins">AIA Philippines American Life and General Ins</option>
         <option value="Insular Life Assurance Company Limited">Insular Life Assurance Company Limited</option>
@@ -329,7 +328,6 @@
 		
     </div>
 	</div>
-  <?php }?>
 	
 
 	<br>
