@@ -41,35 +41,8 @@
 
 
       <style>
+ 
   
-  
-        .button {
-        border-radius: 18px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /* Add a shadow */
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        transition: transform .2s;
-      }
-      
-      .button1 {background-color: #4CAF50;} /* Green */
-      .button2 {background-color: #ff6666;} /* Blue */
-      .button3 {background-color: #8E8E88;} /* Log out color*/
-      
-      
-      .button:hover {
-        -ms-transform: scale(1.1); /* IE 9 */
-        -webkit-transform: scale(1.1); /* Safari 3-8 */
-        transform: scale(1.1); 
-      }
-      
-      
-      
       
        /* Add styles to the pop-up message */
       #alert {
@@ -142,7 +115,7 @@
           <li class="nav-item dropdown pe-3">
       
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-              <span class="d-none d-md-block dropdown-toggle ps-2">Patient</span>
+              <span class="d-none d-md-block dropdown-toggle ps-2">Medtech</span>
             </a><!-- End Profile Iamge Icon -->
   
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -260,8 +233,8 @@
             <p>examined date :<?php echo $data['examine_date'] ?></p>
         <?php } ?>
         </div>  <br>
-        <button type="submit" class="button button1">Update</button>
-        <button type="button" class="delete button button2">Delete</button>
+        <button type="submit" class="btn btn-success btn-lg">Update</button>
+        <button type="button" class="btn btn-danger btn-lg">Delete</button>
     </form>
 	</div>
 
@@ -280,7 +253,7 @@
     
      // Show the pop-up message
   document.addEventListener("DOMContentLoaded", function() {
-    alert("Welcome to Patient Dashboard😉✔");
+    alert("Welcome to Laboratory Dashboard😉✔");
   });
      </script> -->
     
