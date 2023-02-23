@@ -171,87 +171,42 @@
       </nav><!-- End Icons Navigation -->
   
     </header><!-- End Header -->
+
+  <aside id="sidebar" class="sidebar">
+  
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.php">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+    </ul>
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+        <a class="nav-link collapsed" href="surgery/scheduler.php">
+          <i class="bi bi-grid"></i>
+          <span>Surgery Schedule</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+    </ul>
+
+  </aside><!-- End Sidebar-->
   
     <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
-  
-      <ul class="sidebar-nav" id="sidebar-nav">
-  
-  
-          <li class="nav-heading">SURGERY SCHEDULER</li>
-  
-        
-        <li class="nav-item">
-          <a class="nav-link " href="outpatient/treatment.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Outpatient Treatment</span>
-          </a>
-        </li>
+<main id="main" class="main">
 
-        <li class="nav-item">
-          <a class="nav-link " href="insurance/application.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>HMO & Insurance</span>
-          </a>
-        </li>
+  <div class="pagetitle">
+    <h1></h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
 
-        <li class="nav-item">
-          <a class="nav-link " href="diet/meals.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Diet</span>
-          </a>
-        </li>
+  <head>test</head>
 
-        <li class="nav-item">
-          <a class="nav-link " href="surgery/schedule.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Surgery Schedule</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="laboratory/result.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Laboratory Result</span>
-          </a>
-        </li>
-  
-      </ul>
-  
-    </aside><!-- End Sidebar-->
-  
-    <main id="main" class="main">
-  
-      <div class="pagetitle">
-        <h1>SURGERY SCHEDULER</h1>
-        <nav>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-            <li class="breadcrumb-item active">SURGERY SCHEDULER</li>
-          </ol>
-        </nav>
-      </div><!-- End Page Title -->
-
-
-
-<body>
-	  <br>
-    <div class="title">
-    <h1 class="title2">AlegarioCure Services</h1>
-    <br><br>
-    
-    <h4>From AlegarioCure Hopital Greetings <br> Magandang buhay para sa lahat ng<br> 
-      aming pasyente. serbisyong maasahan<br>
-      para sa lahat serbisyong nag bibigay<br> 
-      alaga upang mapabilis ang paggaling.</h4>
-    <br><br><br>
-  <hr>
-
-   	<div class="module02" style="background-image: url('../../assets/img/patientdash - Copy.png'); border-radius: 22px;">
-    <h1>SURGERY SCHEDULER DASHBOARD</h1>
-    &nbsp;&nbsp;&nbsp;<a href="surgery/scheduler.php" style="color: Green;">Surgery Scheduler</a>
-    &nbsp;&nbsp;&nbsp;<a href="../../environment/session/logout.php" class="button button1">logout</a>
-	</div>
 
       <!-- Vendor JS Files -->
     <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>

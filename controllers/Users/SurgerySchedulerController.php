@@ -72,11 +72,12 @@
         public function listOfSortedSurgerySchedules() {
 
             $query = "SELECT surgery_schedules.id, surgery_schedules.surgery_type, surgery_schedules.appointment_date, 
-            surgery_schedules.appointment_time, patients.first_name as patient_first_name, 
-            patients.last_name as patient_last_name, doctors.first_name as doctor_first_name, doctors.last_name as doctor_last_name 
-            FROM `surgery_schedules` INNER JOIN `patients` ON surgery_schedules.patient_id = patients.id 
-            INNER JOIN doctors ON surgery_schedules.doctor_id = doctors.id
-            WHERE status = 0
+            surgery_schedules.doctor_type, surgery_schedules.appointment_time, patients.first_name as patient_first_name, 
+            patients.last_name as patient_last_name
+            FROM `surgery_schedules` 
+            INNER JOIN `patients` 
+            ON surgery_schedules.patient_id = patients.id 
+            WHERE status = 'pending'
             ORDER BY appointment_date DESC";
             $execute = mysqli_query(Database::connect(), $query);
 

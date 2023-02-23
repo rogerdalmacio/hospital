@@ -4,14 +4,23 @@
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Hospital/environment/Database.php';
     include_once $_SERVER['DOCUMENT_ROOT'] . '/Hospital/controllers/Users/SurgerySchedulerController.php';
 
+    $surgerylist = [];
+
     $query = new SurgerySchedulerQuery;
 
     $listOfDoctors = $query->all('doctors');
 
     $listOfSurgery = $query->all('surgery_list');
-    $listOfModalSugery = $query->all('surgery_list');
 
     $listOfSurgerySchedules = $query->listOfSortedSurgerySchedules();
+    
+    if($listOfSurgerySchedules->num_rows > 0) {
+
+      while($data = $listOfSurgerySchedules->fetch_assoc()){
+        $surgerylist[] = $data;
+      }
+
+    }
 
 ?>
 
@@ -43,6 +52,10 @@
     
       <!-- Template Main CSS File -->
       <link href="../../../assets/css/style.css" rel="stylesheet">
+
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+
+      <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     
 
 
@@ -271,48 +284,21 @@ th {
     <!-- ======= Sidebar ======= -->
     <aside id="sidebar" class="sidebar">
   
-      <ul class="sidebar-nav" id="sidebar-nav">
-  
-  
-          <li class="nav-heading">Surgery Scheduler</li>
-  
-        
-        <li class="nav-item">
-          <a class="nav-link " href="outpatient/treatment.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Outpatient Treatment</span>
-          </a>
-        </li>
+    <ul class="sidebar-nav" id="sidebar-nav">
 
-        <li class="nav-item">
-          <a class="nav-link " href="insurance/application.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>HMO & Insurance</span>
-          </a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../index.php">
+          <i class="bi bi-menu-button-wide"></i><span>Dashboard
+        </a>
+      </li><!-- End Components Nav -->
 
-        <li class="nav-item">
-          <a class="nav-link " href="diet/meals.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Diet</span>
-          </a>
-        </li>
+      <li class="nav-item">
+        <a class="nav-link"" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Surgery Scheduler
+        </a>
+      </li><!-- End Components Nav -->
 
-        <li class="nav-item">
-          <a class="nav-link " href="surgery/schedule.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Surgery Schedule</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link " href="laboratory/result.php">
-            <i class="bi bi-layout-text-window-reverse"></i>
-            <span>Laboratory Result</span>
-          </a>
-        </li>
-  
-      </ul>
+    </ul>
   
     </aside><!-- End Sidebar-->
   
@@ -328,272 +314,123 @@ th {
         </nav>
       </div><!-- End Page Title -->
 
-
-
 <body>
-	 <br>
-     <div class="module">
-		 <h3>Surgery Scheduler</h3><br>
-    <form  action="submit_schedule.php" method="post" >
-        <input type="number"  placeholder="patient id" name="patient_id" required>
-        <select name="doctor" required>
-            <option value="" selected disabled>Doctor</option>
-            <?php while($doctor = mysqli_fetch_assoc($listOfDoctors)) {?>
-                <option value=" <?php echo $doctor['id'] ?> "><?php echo $doctor['first_name'] . " " . $doctor['last_name'] ?></option>
-            <?php }?>
-        </select>
-        <select name="surgery_type" required>
-            <option value="" selected disabled>Surgery Type</option>
-            <?php while($surgery = mysqli_fetch_assoc($listOfSurgery)) {?>
-                <option value=" <?php echo $surgery['surgery'] ?> "><?php echo $surgery['surgery'] ?></option>
-            <?php }?>
-        </select>
-        <input type="date" id="future-date" name="date" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
-        <select name="time" id="">
-            <option value="" selected disabled>Time</option>
-            <option value="8:00 am">8:00 am</option>
-            <option value="10:00 am">10:00 am</option>
-            <option value="12:00 pm">12:00 pm</option>
-            <option value="2:00 pm">2:00 pm</option>
-            <option value="4:00 pm">4:00 pm</option>
-        </select>
-        <button type="submit" name="submit" class="button button11">Submit</button>
-    </form>
-    <br>
-    <h3>Schedules</h3>	
-	
-	    <table style="width:1150px">
-  <thead>
-  
-    <tr>	  
-	  <tr> 
-	   <div>
-	   <th><p>Surgery id :</p></th>
-       <th><p>Patient name :</p></th>
-       <th><p>Doctor name:</p></th>
-        <th><p>Surgery type:</p></th>
-       <th><p>Appoitment date:</p></th>
-       <th><p>Appointment time:</p><br></th>
-	   <th><p>Actions</p></th>
-	  </tr>
-    </tr>
-	
-  </thead>
-  <tbody style="height:90px">
-	
-   <?php while($listOfSurgerySchedule = mysqli_fetch_assoc($listOfSurgerySchedules)) {?>
-   <form class="surgeryeditform">
-    <tr>
-      <td><?php echo $listOfSurgerySchedule['id'] ?></td>
-      <td><?php echo $listOfSurgerySchedule['patient_first_name'] . " " . $listOfSurgerySchedule['patient_last_name']?></td>
-      <td><?php echo $listOfSurgerySchedule['doctor_first_name'] . " " . $listOfSurgerySchedule['doctor_last_name']?></td>
-	  <td><?php echo $listOfSurgerySchedule['surgery_type'] ?></td>
-	  <td><?php echo $listOfSurgerySchedule['appointment_date'] ?></td>
-	  <td><?php echo $listOfSurgerySchedule['appointment_time'] ?></td>
-	  
-	 <td style="background-color: #d3d3d3">&nbsp;&nbsp;
-	  <button type="submit" name="edit" class="button button1" style="color:#FFFFFF">Edit</button>
-    <button type="button" class="delete button button3" style="color:#FFFFFF" value="<?php echo $listOfSurgerySchedule['id'] ?>">delete</button>
-	 </td>
-    </tr>
-	 </form>
-  <?php }?>
+
+  <form class="row g-3" action="submit_schedule.php" method="post">
+    <div class="col-md-1">
+      <input type="number" class="form-control" placeholder="patient id" name="patient_id" required>
+    </div>
+    <div class="col-md-2">
+      <select class="form-select" name="doctor" aria-label="Default select example" required>
+        <option disabled selected>Doctor Type</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <select class="form-select" name="surgery_type" aria-label="Default select example" required>
+        <option disabled selected>Surgery Type</option>
+        <?php while($surgery = mysqli_fetch_assoc($listOfSurgery)) {?>
+          <option value=" <?php echo $surgery['surgery'] ?> "><?php echo $surgery['surgery'] ?></option>
+        <?php }?>
+      </select>
+    </div>
+    <div class="col-2">
+      <input type="date" name="date" class="form-control">
+    </div>
+    <div class="col-md-2">
+      <select class="form-select" name="time" aria-label="Default select example" required>
+        <option disabled selected>Time</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+
+  <div class="mt-4">
+    <table class="table table-hover" id="surgery_schedule">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Firstname</th>
+          <th scope="col">Lastname</th>
+          <th scope="col">Type of Doctor</th>
+          <th scope="col">Type of Surgery</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
   </div>
- </tbody>
 
 	  
-    <hr>
-		 <p style="color: grey;">About: Schedules refer to the planned timetables for various activities and operations within the hospital. For patients, schedules typically involve booking appointments with physicians or other healthcare professionals, arranging diagnostic tests and procedures, and coordinating hospital admissions and discharges. These schedules are typically managed by the hospital's administrative staff or through online appointment booking systems.</p>
+  <hr>
+  <p style="color: grey;">About: Schedules refer to the planned timetables for various activities and operations within the hospital. For patients, schedules typically involve booking appointments with physicians or other healthcare professionals, arranging diagnostic tests and procedures, and coordinating hospital admissions and discharges. These schedules are typically managed by the hospital's administrative staff or through online appointment booking systems.</p>
 	</div>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-
-<!-- Modal -->
-
-    <div id="editModal" class="modal">
-    <div class="modal-content">
-        <form id="editSurgeryForm">
-            <div class="modal-content-child">
-                <h3>Edit Surgery</h3>
-                <span class="close">&times;</span>
-            </div>
-
-            <input type="hidden" id="surgery_id" name="surgery_id">
-            <p class="modal-values"></p>
-            <p class="modal-values"></p>
-            <p class="modal-values"></p>
-            
-            <select name="surgery_type" required>
-            <option value="" selected disabled>Surgery Type</option>
-                <?php while($modalSurgery = mysqli_fetch_assoc($listOfModalSugery)) {?>
-                    <option value=" <?php echo $modalSurgery['surgery'] ?> "><?php echo $modalSurgery['surgery'] ?></option>
-                <?php }?>
-            </select>
-            <input type="date" id="future-date" name="date" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>">
-            <select name="time" id="">
-                <option value="" selected disabled>Time</option>
-                <option value="8:00 am">8:00 am</option>
-                <option value="10:00 am">10:00 am</option>
-                <option value="12:00 pm">12:00 pm</option>
-                <option value="2:00 pm">2:00 pm</option>
-                <option value="4:00 pm">4:00 pm</option>
-            </select>
-            <button type="submit" name="save">Save</button>
-        </form>
+  <div class="modal fade" id="ExtralargeModal" tabindex="-1">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Extra Large Modal</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit. Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
     </div>
-    </div>
+  </div><!-- End Extra Large Modal-->
 
+    <!-- Vendor JS Files -->
+    <script src="../../../assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="../../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../../assets/vendor/chart.js/chart.min.js"></script>
+    <script src="../../../assets/vendor/echarts/echarts.min.js"></script>
+    <script src="../../../assets/vendor/quill/quill.min.js"></script>
+    <script src="../../../assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="../../../assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="../../../assets/vendor/php-email-form/validate.js"></script>
+  
+    <!-- Template Main JS File -->
+    <script src="../../../assets/js/main.js"></script>
 
-<script>
-
-
-    // Get the modal
-    const modal = document.getElementById("editModal");
-
-    // Get the button that opens the modal
-    const forms = document.querySelectorAll(".surgeryeditform");
-
-    // Get the <span> element that closes the modal
-    const span = document.getElementsByClassName("close")[0];
-
-    const modalSurgeryId = document.getElementById('surgery_id');
-
-    const modalValues = document.querySelectorAll('.modal-values');
-
-    const editSurgeryForm = document.getElementById('editSurgeryForm');
-
-    $('.delete').click(function() {
-
-        $.post("delete_schedule.php", {
-            id : $(this).val()
-        },
-        function(data){
-            alert(data);
-        })
-        window.location.reload();
-    })
-
-    // When the user clicks on the button, open the modal
-    forms.forEach(form => {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const formdata = new FormData(form);
-
-            const surgeryid = formdata.get('surgeryid')
-
-            modalSurgeryId.value = surgeryid;
-            modalValues[0].innerHTML = `Surgery id : ${formdata.get('surgeryid')}`;
-            modalValues[1].innerHTML = `Patient name : ${formdata.get('patientname')}`;
-            modalValues[2].innerHTML = `Doctor name : ${formdata.get('doctorname')}`;
-
-            editSurgeryForm.addEventListener('submit', (e1) => {
-                e1.preventDefault();
-                const editForm = new FormData(editSurgeryForm);
-
-                $.post("edit_schedule.php",
+    <script>
+      $(document).ready(function() {
+        const jsonData = <?php echo json_encode($surgerylist)?>;
+        console.log(jsonData)
+        $('#surgery_schedule').DataTable({
+            data: jsonData,
+            columns: [
+                { data: 'id' },
+                { data: 'patient_first_name' },
+                { data: 'patient_last_name' },
+                { data: 'doctor_type' },
+                { data: 'surgery_type' },
+                { data: 'appointment_date' },
+                { data: 'appointment_time' },
                 {
-                    id : surgeryid,
-                    surgery_type : editForm.get('surgery_type'),
-                    appointment_date : editForm.get('date'),
-                    appointment_time : editForm.get('time')
-                },
-                function(data){
-                    alert(data);
-                });
-
-                modal.style.display = "none";
-                window.location.reload();
-
-            })
-
-            modal.style.display = "block";
-        })
-
-    })
-
-    const submitSurgery = ( (surgeryid, ) => {
-
-    }) 
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-    modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-
-    window.onkeydown = function(e) {
-
-        if(e.key == "Escape") {
-            modal.style.display = "none";
-        }
-    }
-
-
-    }
-
-
-</script>
-
-<style>
-
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.4); 
-}
-
-.modal-content {
-  display: flex;
-  height: 40vh;
-  width: 30%;
-  background-color: white;
-  margin: 15% auto; 
-}
-
-.modal-content form {
-    width: 100%;
-    padding: 2rem;
-}
-
-.modal-content-child {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-</style>
-
+                  data: null,
+                  render: function(data, type, row) {
+                        return '<button type="submit" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#ExtralargeModal" data-id="' + row.id +'">Edit</button>' +
+                               '<button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#ExtralargeModal" data-id="' + row.id +'">Delete</button>';
+                }
+              }
+            ]
+        });
+    });
+    </script>
 </body>
 </html>
