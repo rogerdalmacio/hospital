@@ -36,34 +36,6 @@
 
       <style>
   
-  
-        .button {
-        border-radius: 18px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /* Add a shadow */
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        transition: transform .2s;
-      }
-      
-      .button1 {background-color: #4CAF50;} /* Green */
-      .button2 {background-color: #008CBA;} /* Blue */
-      .button3 {background-color: #8E8E88;} /* Log out color*/
-      
-      
-      .button:hover {
-        -ms-transform: scale(1.1); /* IE 9 */
-        -webkit-transform: scale(1.1); /* Safari 3-8 */
-        transform: scale(1.1); 
-      }
-      
-      
-      
       
        /* Add styles to the pop-up message */
       #alert {
@@ -78,6 +50,22 @@
         transform: translate(-50%, -50%);
         display: none;
       }
+	  
+	  
+    .module02 {
+    background-color: #e0e0d1;
+    border: 2px solid #acac86;  /* Add a border to the module */
+    border-radius: 22px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /* Add a shadow */
+    padding: 50px;  /* Add padding to the module */
+    width: 700px;  /* Set the width of the module */
+    height: 460px;  /* Set the height of the module */
+    margin-left: auto;
+    margin-right: auto; 
+    
+    }
+	    
+	  
         
         </style>
       
@@ -116,7 +104,7 @@
           <li class="nav-item dropdown pe-3">
       
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-              <span class="d-none d-md-block dropdown-toggle ps-2">Patient</span>
+              <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
             </a><!-- End Profile Iamge Icon -->
   
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -179,7 +167,7 @@
       <ul class="sidebar-nav" id="sidebar-nav">
   
   
-          <li class="nav-heading">DOCTOR DASHBOARD</li>
+          <li class="nav-heading">ADMIN DASHBOARD</li>
   
         
         <li class="nav-item">
@@ -224,18 +212,14 @@
     <main id="main" class="main">
   
       <div class="pagetitle">
-        <h1>DOCTOR DASHBOARD</h1>
+        <h1>ADMIN DASHBOARD</h1>
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-            <li class="breadcrumb-item active">DOCTOR DASHBOARD</li>
+            <li class="breadcrumb-item active">ADMIN DASHBOARD</li>
           </ol>
         </nav>
       </div><!-- End Page Title -->
-
-
-
-
 
 <body>
 		   <br>
@@ -250,8 +234,47 @@
     <br><br><br>
   <hr>
 
-    <h1>DOCTOR DASHBOARD</h1>
-    <a href="../../environment/session/logout.php">logout</a>
+	
+	<div class="module02" style="border-radius: 22px;">
+    <br><h1>ADMIN DASHBOARD <img src="../../assets/img/dffdgg.png" alt="HR Logo" height="10%" width="20%"></h1>
+    <!---&nbsp;&nbsp;&nbsp;<a href="appointment/list.php" class="btn btn-link bi bi-card-list" style="color: Green; font-size: 20px;">   Appointments</a>--->
+    <br><br><hr><br>&nbsp;&nbsp;&nbsp;<a href="../../environment/session/logout.php" class="btn btn-dark btn-lg">Logout</a>
+	</div>
+
+
+ <br>
+ <hr>
+
+    <!-- ======= Footer ======= -->
+     <footer>
+      <div class="container">
+        <p align="center"><br>©2023 AlegarioCure Hospital | All Rights Reserved</p>
+      </div>
+    </footer>
+    
+     <!-- <script>
+    
+     // Show the pop-up message
+  document.addEventListener("DOMContentLoaded", function() {
+    alert("Welcome to Admin Dashboard😉✔");
+  });
+     </script> -->
+    
+  
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+    <!-- Vendor JS Files -->
+    <script src="../../assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/vendor/chart.js/chart.min.js"></script>
+    <script src="../../assets/vendor/echarts/echarts.min.js"></script>
+    <script src="../../assets/vendor/quill/quill.min.js"></script>
+    <script src="../../assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="../../assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="../../assets/vendor/php-email-form/validate.js"></script>
+  
+    <!-- Template Main JS File -->
+    <script src="../../assets/js/main.js"></script>
 </body>
 </html>
 

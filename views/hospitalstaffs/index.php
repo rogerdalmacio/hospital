@@ -36,35 +36,8 @@
 
       <style>
   
-  
-        .button {
-        border-radius: 18px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /* Add a shadow */
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-        transition: transform .2s;
-      }
       
-      .button1 {background-color: #4CAF50;} /* Green */
-      .button2 {background-color: #008CBA;} /* Blue */
-      .button3 {background-color: #8E8E88;} /* Log out color*/
-      
-      
-      .button:hover {
-        -ms-transform: scale(1.1); /* IE 9 */
-        -webkit-transform: scale(1.1); /* Safari 3-8 */
-        transform: scale(1.1); 
-      }
-      
-      
-      
-      
+       
        /* Add styles to the pop-up message */
       #alert {
         background-color: lightblue;
@@ -79,6 +52,22 @@
         display: none;
       }
         
+		
+		     .module02 {
+    background-color: #e0e0d1;
+    border: 2px solid #acac86;  /* Add a border to the module */
+    border-radius: 22px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /* Add a shadow */
+    padding: 50px;  /* Add padding to the module */
+    width: 900px;  /* Set the width of the module */
+    height: 570px;  /* Set the height of the module */
+    margin-left: auto;
+    margin-right: auto; 
+    
+    }
+		
+		
+		
         </style>
       
 
@@ -117,7 +106,7 @@
           <li class="nav-item dropdown pe-3">
       
             <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-              <span class="d-none d-md-block dropdown-toggle ps-2">Patient</span>
+              <span class="d-none d-md-block dropdown-toggle ps-2">Staff</span>
             </a><!-- End Profile Iamge Icon -->
   
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -249,16 +238,16 @@
       alaga upang mapabilis ang paggaling.</h4>
     <br><br><br>
   <hr>
-
-   	<div class="module02" style="background-image: url('../../assets/img/patientdash - Copy.png'); border-radius: 22px;">
-    <h1>HOSPITAL STAFF DASHBOARD</h1>
 	
-	    &nbsp;&nbsp;&nbsp;<a href="laboratory/request" style="color: Green;">Laboratory Request</a>
-		&nbsp;&nbsp;&nbsp;<a href="insurance/list" style="color: Green;">Patients Hmo and Insurance</a>
-	<br><br>
-	&nbsp;&nbsp;&nbsp;<button class="button button1"><a href="../../environment/session/logout.php" style="color: black;">logout</a></button>
-	</div>
 	
+   	<div class="module02" style="border-radius: 22px;">
+    <br><h1>HOSPITAL STAFF DASHBOARD<img src="../../assets/img/R.png" alt="HR Logo" height="10%" width="20%"></h1>
+    &nbsp;<a href="laboratory/request" class="btn btn-link bi bi-card-list" style="color: Green; font-size: 20px;">   Laboratory Request</a>
+	&nbsp;&nbsp;&nbsp;<br><a href="insurance/list" class="btn btn-link bi bi-card-list" style="color: Green; font-size: 20px;">   Patients Hmo and Insurance</a>
+    <br><br><hr><br>&nbsp;&nbsp;&nbsp;<a href="../../environment/session/logout.php" class="btn btn-dark btn-lg">Logout</a>
+	</div>	
+	
+		
 	
      <br>
 
@@ -275,7 +264,7 @@
     
      // Show the pop-up message
   document.addEventListener("DOMContentLoaded", function() {
-    alert("Welcome to Patient Dashboard😉✔");
+    alert("Welcome to Staff Dashboard😉✔");
   });
      </script> -->
     
