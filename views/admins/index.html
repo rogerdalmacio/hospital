@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Dashboard</title>
 		    <meta content="" name="description">
     <meta content="" name="keywords">
     <link rel="icon" type="image/x-icon" href="img/logoo1.ico">
@@ -52,20 +52,86 @@
       }
 	  
 	  
-    .module02 {
-    background-color: #e0e0d1;
+.module02 {
+  background-color: #f6f9ff;
+  border: 2px solid #acac86;  /* Add a border to the module */
+  border-radius: 22px; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /* Add a shadow */
+  padding: 50px;  /* Add padding to the module */
+  width: 100%;  /* Set the width of the module to 100% */
+  max-width: 700px;  /* Set the maximum width of the module to 700px */
+  height: 460px;  /* Set the height of the module */
+  margin: auto;  /* Center the module horizontally */
+}
+
+/* Media query for screens with a maximum width of 768px (mobile devices) */
+@media screen and (max-width: 768px) {
+  .module02 {
+    height: auto;  /* Set the height of the module to auto */
+  }
+}
+
+	
+	
+	
+	.module03 {
+	background-color: #e0e0d1;
     border: 2px solid #acac86;  /* Add a border to the module */
     border-radius: 22px; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  /* Add a shadow */
     padding: 50px;  /* Add padding to the module */
-    width: 700px;  /* Set the width of the module */
-    height: 460px;  /* Set the height of the module */
-    margin-left: auto;
-    margin-right: auto; 
-    
-    }
-	    
+	  width: 100%;  /* Set the width of the module to 100% */
+      max-width: 700px;  /* Set the maximum width of the module to 700px */
+      height: 300px;  /* Set the height of the module */
+      margin: auto;  /* Center the module horizontally */
+	   margin-top: 20px;
+       margin-bottom: 30px;
+	}
+	
+	/* Media query for screens with a maximum width of 768px (mobile devices) */
+@media screen and (max-width: 768px) {
+  .module03 {
+    height: auto;  /* Set the height of the module to auto */
+  }
+}
+
+	
+	  span:hover {
+    color: #3399ff;
+    cursor: pointer;
+	transform: scale(1.1);
+    /* add any other styles you want for the hover effect */
+  }
+	
+	      .time {
+        font-size: 48px;
+        text-align: center;
+      }
+	
+	
+	      .clock-box {
+        background-color: #fff;
+        border: 2px solid #ccc;
+        border-radius: 22px;
+        width: 200px;
+        height: 90px;
+        margin: 50px 0 50px auto;
+        padding: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+        text-shadow: 1px 1px #000;
+		color: Grey;
+		margin-right: 20px;
+      }
 	  
+
+		#timer {
+			font-weight: bold;
+			color: #57d8cd; /* highlight color */
+		}
         
         </style>
       
@@ -79,7 +145,9 @@
       <div class="d-flex align-items-center justify-content-between">
         <a href="index.php" class="logoo d-flex align-items-center">
           <img src="../../assets/img/logoo.png" alt="">
-          <span class="d-none d-lg-block" style="color:#2098d1";><b>&nbsp;Alegario Cure</b><br><b style="color:#66cc33";>&nbsp;Hospital</b></span>
+		  <span class="d-none d-lg-block" style="color:#2098d1; font-size: 24px;"><b>&nbsp;Alegario Cure</b><br><b style="color:#66cc33;">&nbsp;Hospital</b></span>
+
+          <!--<span class="d-none d-lg-block" style="color:#2098d1";><b>&nbsp;Alegario Cure</b><br><b style="color:#66cc33";>&nbsp;Hospital</b></span>--->
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
       </div><!-- End Logo -->
@@ -146,12 +214,6 @@
                 <hr class="dropdown-divider">
               </li>
   
-              <li>
-                  <a href="../../environment/session/logout.php" class="dropdown-item d-flex align-items-cente">
-                    <i class="bi bi-box-arrow-right"></i>
-                    <span>Log Out</span>
-                  </a>
-              </li>
               
             </ul><!-- End Profile Dropdown Items -->
           </li><!-- End Profile Nav -->
@@ -167,8 +229,16 @@
       <ul class="sidebar-nav" id="sidebar-nav">
   
   
-          <li class="nav-heading">ADMIN DASHBOARD</li>
-  
+          <li class="nav-heading"><b>ADMIN DASHBOARD</b></li>
+
+          <li class="nav-item">
+            <a class="nav-link " href="index.html">
+              <i class="bi bi-layout-text-window-reverse"></i>
+              <span>Home</span>
+            </a>
+          </li>
+		  <br>
+		  <li class="nav-heading"><b>Sub modules</b></li>
         
         <li class="nav-item">
           <a class="nav-link " href="outpatient/treatment.php">
@@ -224,25 +294,81 @@
 <body>
 		   <br>
     <div class="title">
-    <h1 class="title2">AlegarioCure Services</h1>
-    <br><br>
-    
-    <h4>From AlegarioCure Hopital Greetings <br> Magandang buhay para sa lahat ng<br> 
-      aming pasyente. serbisyong maasahan<br>
-      para sa lahat serbisyong nag bibigay<br> 
-      alaga upang mapabilis ang paggaling.</h4>
-    <br><br><br>
-  <hr>
-
+    <h1 class="title2"></h1>
 	
-	<div class="module02" style="border-radius: 22px;">
-    <br><h1>ADMIN DASHBOARD <img src="../../assets/img/dffdgg.png" alt="HR Logo" height="10%" width="20%"></h1>
-    <!---&nbsp;&nbsp;&nbsp;<a href="appointment/list.php" class="btn btn-link bi bi-card-list" style="color: Green; font-size: 20px;">   Appointments</a>--->
-    <br><br><hr><br>&nbsp;&nbsp;&nbsp;<a href="../../environment/session/logout.php" class="btn btn-dark btn-lg">Logout</a>
-	</div>
+	
+
+  <hr>
+ 
+	
+	
+	 <br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="module02" style="border-radius: 22px;">
+        <br><h1>ADMIN DASHBOARD <img src="../../assets/img/dffdgg.png" alt="HR Logo" height="10%" width="20%">
+		<br><br>
+		<p style="font-size: 22px;">You have been on this page for <span id="timer"></span></p>
+			<script>
+		// get the current time when the user logs in
+		let startTime = Date.now();
+
+		// update the timer every second
+		setInterval(function() {
+			// calculate the elapsed time
+			let elapsedTime = Date.now() - startTime;
+
+			// convert the elapsed time from milliseconds to hours, minutes, and seconds
+			let hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+			let minutes = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
+			let seconds = Math.floor((elapsedTime % (1000 * 60)) / 1000);
+
+			// format the elapsed time as a string
+			let timeString = hours + "h " + minutes + "m " + seconds + "s";
+
+			// update the timer element with the elapsed time
+			document.getElementById("timer").innerHTML = timeString;
+		}, 1000); // update every second
+	</script>
+		</h1>
+        <!---&nbsp;&nbsp;&nbsp;<a href="appointment/list.php" class="btn btn-link bi bi-card-list" style="color: Green; font-size: 20px;">   Appointments</a>--->
+        <br><hr><br>&nbsp;&nbsp;&nbsp;<a href="../../environment/session/logout.php" class="btn btn-dark btn-lg">Logout</a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="module03" style="border-radius: 22px;">
+        <p style="color: grey"><b>About:</b> An Admin Dashboard is a web-based interface that enables administrators to manage and monitor their system or application. It displays critical data through charts and tables, allowing administrators to quickly identify and respond to issues. Additionally, it may offer tools for tasks such as user and content management. Overall, an Admin Dashboard is an essential tool for efficient system administration.</p>
+      </div>
+    </div>
+	
+	     <div class="clock-box">
+  <div class="time" id="clock"></div>
+  </div>
+  </div>
+  
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  <br>
+ <br><br>
+ <br><br><br>
  <hr>
 
     <!-- ======= Footer ======= -->
@@ -259,6 +385,19 @@
     alert("Welcome to Admin Dashboard😉✔");
   });
      </script> -->
+	 
+	 
+	     <script>
+      function updateClock() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        var timeString = hours + ':' + minutes + ':' + seconds;
+        document.getElementById('clock').innerHTML = timeString;
+      }
+      setInterval(updateClock, 1000);
+    </script>
     
   
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
